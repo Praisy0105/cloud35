@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Text Generator</title>
+</head>
+<body>
+    <h1>Dynamic Text Generator</h1>
+    <p>Enter your text and customize its appearance below:</p>
+    <form id="textForm">
+        <label for="inputText">Enter Your Text:</label><br>
+        <textarea id="inputText" name="inputText" rows="4" cols="50">water</textarea><br><br>
+        
+        <label for="fontSize">Font Size:</label><br>
+        <select id="fontSize" name="fontSize">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="extraLarge" selected>Extra Large</option>
+        </select><br><br>
+        
+        <label for="textColor">Text Color:</label><br>
+        <input type="text" id="textColor" name="textColor" value="blue"><br><br>
+        
+        <label for="bgColor">Background Color:</label><br>
+        <input type="text" id="bgColor" name="bgColor" value="yellow"><br><br>
+        
+        <button type="button" onclick="generateText()">Generate</button>
+    </form>
+    
+    <div id="output" style="margin-top: 20px; padding: 10px; background-color: yellow; font-size: 32px; color: blue;">
+        water
+    </div>
+    
+    <script>
+        function generateText() {
+            var inputText = document.getElementById("inputText").value;
+            var fontSize = document.getElementById("fontSize").value;
+            var textColor = document.getElementById("textColor").value;
+            var bgColor = document.getElementById("bgColor").value;
+            
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = inputText;
+            outputDiv.style.fontSize = fontSize === "extraLarge" ? "32px" : fontSize === "large" ? "24px" : fontSize === "medium" ? "18px" : "14px";
+            outputDiv.style.color = textColor;
+            outputDiv.style.backgroundColor = bgColor;
+        }
+    </script>
+</body>
+</html>
